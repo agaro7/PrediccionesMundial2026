@@ -587,7 +587,7 @@ const PARTIDOS_POR_DIA = [
         abraham: { home: 1, away: 3 },
       },
       {
-        home: { nombre: "Colombia", flag: "images/jordania.png" },
+        home: { nombre: "Colombia", flag: "images/colombia.png" },
         away: { nombre: "R.D. Congo", flag: "images/rdcongo.png" },
         hora: "05:00",
         actual: null,
