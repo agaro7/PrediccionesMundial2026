@@ -1,21 +1,28 @@
 :root {
   /* Colores de cada uno */
+  --german: #ef4444;
+  --german-fondo: rgba(239, 68, 68, 0.12);
+  --german-borde: rgba(239, 68, 68, 0.22);
+
   --angel: #38bdf8;
   --angel-fondo: rgba(56, 189, 248, 0.12);
   --angel-borde: rgba(56, 189, 248, 0.22);
 
-  --abraham: #ef4444;
-  --abraham-fondo: rgba(239, 68, 68, 0.12);
-  --abraham-borde: rgba(239, 68, 68, 0.22);
+  --abraham: #a78bfa;
+  --abraham-fondo: rgba(167, 139, 250, 0.12);
+  --abraham-borde: rgba(167, 139, 250, 0.22);
 
-  /* Colores */
+  --elena: #fb923c;
+  --elena-fondo: rgba(251, 146, 60, 0.12);
+  --elena-borde: rgba(251, 146, 60, 0.22);
+
+  /* Colores generales */
   --dorado: gold;
   --fondo: #0d0d0d;
   --tarjeta: #161616;
   --borde: #282828;
   --texto: #f0f0f0;
   --texto-apagado: #666;
-
   --campo: #0f2210;
 }
 
@@ -35,7 +42,7 @@ body {
 }
 
 
-/*  CABECERA  */
+/* CABECERA */
 header {
   background: var(--tarjeta);
   border-bottom: 1px solid var(--borde);
@@ -50,7 +57,6 @@ header {
   z-index: 100;
 }
 
-/* Título "Mundial Predicciones" */
 .titulo-cabecera {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 2rem;
@@ -71,11 +77,19 @@ header {
   font-weight: 600;
 }
 
-/* Puntito de color junto al nombre */
+.elnombre a {
+  text-decoration: none;
+  color: white;
+}
+
 .punto {
   width: 9px;
   height: 9px;
   border-radius: 50%;
+}
+
+.punto-german {
+  background: var(--german);
 }
 
 .punto-angel {
@@ -86,11 +100,18 @@ header {
   background: var(--abraham);
 }
 
-/* Número grande de puntos */
+.punto-elena {
+  background: var(--elena);
+}
+
 .puntos-grandes {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1.5rem;
   line-height: 1;
+}
+
+.puntos-german {
+  color: var(--german);
 }
 
 .puntos-angel {
@@ -101,11 +122,17 @@ header {
   color: var(--abraham);
 }
 
-.elguion {
-  color: var(--texto-apagado);
-  font-size: 0.8rem;
+.puntos-elena {
+  color: var(--elena);
 }
 
+.elguion {
+  color: var(--texto-apagado);
+  font-size: 1.3rem;
+}
+
+
+/* CONTENIDO */
 main {
   max-width: 1600px;
   margin: 0 auto;
@@ -113,7 +140,7 @@ main {
 }
 
 
-/* tabla de puntos de ariba */
+/* TABLA DE PUNTOS */
 .tabla-puntos {
   background: var(--tarjeta);
   border: 1px solid var(--borde);
@@ -146,7 +173,6 @@ main {
   padding-right: 0;
 }
 
-/* Número de puntos en dorado */
 .regla .num-pts {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1.1rem;
@@ -154,12 +180,12 @@ main {
   min-width: 2rem;
 }
 
-/* BLOQUE DE UN DIA */
+
+/* BLOQUE DÍA */
 .bloque-dia {
   margin-bottom: 2.5rem;
 }
 
-/* Línea con la fecha */
 .cabecera-dia {
   display: flex;
   align-items: center;
@@ -182,10 +208,11 @@ main {
 }
 
 
-/* FILA DE PARTIDO */
+/* FILA DE PARTIDO
+   Dos columnas: resultado real (izquierda) | 4 predicciones en línea (derecha) */
 .fila-partido {
   display: grid;
-  grid-template-columns: 1fr 2.2fr 1fr;
+  grid-template-columns: 1.4fr 2fr;
   margin-bottom: 0.6rem;
   border-radius: 12px;
   overflow: hidden;
@@ -194,52 +221,12 @@ main {
   transition: transform 0.12s ease;
 }
 
-.panel-lateral {
-  padding: 0.9rem 1.1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
+.fila-partido:hover {
+  transform: translateY(-1px);
 }
 
-.panel-angel {
-  background: var(--angel-fondo);
-  border-right: 2px solid var(--angel-borde);
-}
 
-.panel-abraham {
-  background: var(--abraham-fondo);
-  border-left: 2px solid var(--abraham-borde);
-  align-items: flex-end;
-}
-
-/* Nombre */
-.nombre-jugador {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.panel-angel .nombre-jugador {
-  color: var(--angel);
-}
-
-.panel-abraham .nombre-jugador {
-  color: var(--abraham);
-}
-
-.prediccion {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2rem;
-  letter-spacing: 0.05em;
-  line-height: 1;
-}
-
-.prediccion.pendiente {
-  color: var(--texto-apagado);
-  font-size: 1.3rem;
-}
-
+/* PANEL IZQUIERDO: resultado real */
 .panel-centro {
   padding: 0.8rem 0.5rem;
   display: flex;
@@ -248,17 +235,24 @@ main {
   justify-content: center;
   gap: 0.5rem;
   background: var(--campo);
+  border-right: 1px solid var(--borde);
   position: relative;
 }
 
 .fila-equipos {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.55rem;
-  flex-wrap: wrap;
-  justify-content: center;
+  gap: 0.35rem;
   position: relative;
   z-index: 1;
+}
+
+.fila-equipos-nombres {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: nowrap;
 }
 
 .nombre-equipo {
@@ -271,6 +265,7 @@ main {
 .texto-vs {
   font-size: 0.7rem;
   color: var(--texto-apagado);
+  flex-shrink: 0;
 }
 
 .resultado-real {
@@ -295,6 +290,83 @@ main {
   z-index: 1;
 }
 
+
+/* PANEL DERECHO: 4 predicciones en línea horizontal */
+.panel-predicciones {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+/* Panel lateral de cada jugador */
+.panel-lateral {
+  padding: 0.9rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  border-right: 1px solid var(--borde);
+}
+
+.panel-lateral:last-child {
+  border-right: none;
+}
+
+.panel-german {
+  background: var(--german-fondo);
+  align-items: center;
+}
+
+.panel-angel {
+  background: var(--angel-fondo);
+  align-items: center;
+}
+
+.panel-abraham {
+  background: var(--abraham-fondo);
+  align-items: center;
+}
+
+.panel-elena {
+  background: var(--elena-fondo);
+  align-items: center;
+}
+
+.nombre-jugador {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.panel-german .nombre-jugador {
+  color: var(--german);
+}
+
+.panel-angel .nombre-jugador {
+  color: var(--angel);
+}
+
+.panel-abraham .nombre-jugador {
+  color: var(--abraham);
+}
+
+.panel-elena .nombre-jugador {
+  color: var(--elena);
+}
+
+.prediccion {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.prediccion.pendiente {
+  color: var(--texto-apagado);
+  font-size: 1.3rem;
+}
+
+
+/* BANDERAS */
 .bandera-wrap {
   display: inline-flex;
   flex-shrink: 0;
@@ -309,7 +381,6 @@ main {
   display: block;
 }
 
-/* Placeholder */
 .bandera-placeholder {
   width: 54px;
   height: 36px;
@@ -327,7 +398,7 @@ main {
 }
 
 
-/* BADGES*/
+/* BADGES */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -388,7 +459,8 @@ main {
   border: 1px solid rgba(100, 100, 100, .18);
 }
 
-/* LEYENDA DE COLORES  */
+
+/* LEYENDA */
 .leyenda {
   display: flex;
   flex-wrap: wrap;
@@ -413,22 +485,20 @@ main {
   flex-shrink: 0;
 }
 
-/* Para pantallas pequeñas */
 
+/* MÓVIL */
 @media (max-width: 640px) {
-
   .fila-partido {
     grid-template-columns: 1fr;
   }
 
-  .panel-angel {
-    border-right: none;
-    border-bottom: 2px solid var(--angel-borde);
+  .panel-predicciones {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .panel-abraham {
-    border-left: none;
-    border-top: 2px solid var(--abraham-borde);
+  .panel-centro {
+    border-right: none;
+    border-bottom: 1px solid var(--borde);
   }
 
   header {
