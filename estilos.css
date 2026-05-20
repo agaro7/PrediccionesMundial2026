@@ -77,11 +77,6 @@ header {
   font-weight: 600;
 }
 
-.elnombre a {
-  text-decoration: none;
-  color: white;
-}
-
 .punto {
   width: 9px;
   height: 9px;
