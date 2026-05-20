@@ -1,0 +1,437 @@
+:root {
+  /* Colores de cada uno */
+  --angel: #38bdf8;
+  --angel-fondo: rgba(56, 189, 248, 0.12);
+  --angel-borde: rgba(56, 189, 248, 0.22);
+
+  --abraham: #ef4444;
+  --abraham-fondo: rgba(239, 68, 68, 0.12);
+  --abraham-borde: rgba(239, 68, 68, 0.22);
+
+  /* Colores */
+  --dorado: gold;
+  --fondo: #0d0d0d;
+  --tarjeta: #161616;
+  --borde: #282828;
+  --texto: #f0f0f0;
+  --texto-apagado: #666;
+
+  --campo: #0f2210;
+}
+
+
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: 'Bebas Neue', sans-serif;
+  min-height: 100vh;
+}
+
+
+/*  CABECERA  */
+header {
+  background: var(--tarjeta);
+  border-bottom: 1px solid var(--borde);
+  padding: 1.2rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Título "Mundial Predicciones" */
+.titulo-cabecera {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.06em;
+}
+
+.marcador {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.jugador {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Puntito de color junto al nombre */
+.punto {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.punto-angel {
+  background: var(--angel);
+}
+
+.punto-abraham {
+  background: var(--abraham);
+}
+
+/* Número grande de puntos */
+.puntos-grandes {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.puntos-angel {
+  color: var(--angel);
+}
+
+.puntos-abraham {
+  color: var(--abraham);
+}
+
+.elguion {
+  color: var(--texto-apagado);
+  font-size: 0.8rem;
+}
+
+main {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 2rem 2rem 4rem;
+}
+
+
+/* tabla de puntos de ariba */
+.tabla-puntos {
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  padding: 0.75rem 1.4rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.regla {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 1.1rem;
+  font-size: 0.74rem;
+  color: var(--texto-apagado);
+  white-space: nowrap;
+  border-right: 1px solid var(--borde);
+  flex: 1;
+}
+
+.regla:first-child {
+  padding-left: 0;
+}
+
+.regla:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+/* Número de puntos en dorado */
+.regla .num-pts {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  color: YellowGreen;
+  min-width: 2rem;
+}
+
+/* BLOQUE DE UN DIA */
+.bloque-dia {
+  margin-bottom: 2.5rem;
+}
+
+/* Línea con la fecha */
+.cabecera-dia {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.etiqueta-dia {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.1em;
+  color: var(--dorado);
+  white-space: nowrap;
+}
+
+.linea-dia {
+  flex: 1;
+  height: 1px;
+  background: var(--borde);
+}
+
+
+/* FILA DE PARTIDO */
+.fila-partido {
+  display: grid;
+  grid-template-columns: 1fr 2.2fr 1fr;
+  margin-bottom: 0.6rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--borde);
+  background: var(--tarjeta);
+  transition: transform 0.12s ease;
+}
+
+.panel-lateral {
+  padding: 0.9rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.panel-angel {
+  background: var(--angel-fondo);
+  border-right: 2px solid var(--angel-borde);
+}
+
+.panel-abraham {
+  background: var(--abraham-fondo);
+  border-left: 2px solid var(--abraham-borde);
+  align-items: flex-end;
+}
+
+/* Nombre */
+.nombre-jugador {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.panel-angel .nombre-jugador {
+  color: var(--angel);
+}
+
+.panel-abraham .nombre-jugador {
+  color: var(--abraham);
+}
+
+.prediccion {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.prediccion.pendiente {
+  color: var(--texto-apagado);
+  font-size: 1.3rem;
+}
+
+.panel-centro {
+  padding: 0.8rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--campo);
+  position: relative;
+}
+
+.fila-equipos {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.nombre-equipo {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.texto-vs {
+  font-size: 0.7rem;
+  color: var(--texto-apagado);
+}
+
+.resultado-real {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 0.1em;
+  color: #fff;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.resultado-real.pendiente {
+  font-size: 1.5rem;
+  color: var(--texto-apagado);
+}
+
+.hora-partido {
+  font-size: 0.75rem;
+  color: var(--texto-apagado);
+  position: relative;
+  z-index: 1;
+}
+
+.bandera-wrap {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.bandera-img {
+  width: 54px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: block;
+}
+
+/* Placeholder */
+.bandera-placeholder {
+  width: 54px;
+  height: 36px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #252525;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.48rem;
+  font-weight: 700;
+  color: var(--texto-apagado);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+
+/* BADGES*/
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.67rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 20px;
+  width: fit-content;
+  letter-spacing: 0.02em;
+}
+
+.badge-10 {
+  background: #d1fae5;
+  color: #065f46;
+  border-color: #10b981;
+}
+
+.badge-8 {
+  background: #dcfce7;
+  color: #166534;
+  border-color: #22c55e;
+}
+
+.badge-6 {
+  background: #ecfccb;
+  color: #3f6212;
+  border-color: #84cc16;
+}
+
+.badge-5 {
+  background: #fef9c3;
+  color: #854d0e;
+  border-color: #eab308;
+}
+
+.badge-4 {
+  background: #fef3c7;
+  color: #92400e;
+  border-color: #f59e0b;
+}
+
+.badge-2 {
+  background: #fed7aa;
+  color: #9a3412;
+  border-color: #f97316;
+}
+
+.badge-0 {
+  background: #fee2e2;
+  color: #7f1d1d;
+  border-color: #dc2626;
+}
+
+.badge-pendiente {
+  background: rgba(100, 100, 100, .08);
+  color: var(--texto-apagado);
+  border: 1px solid rgba(100, 100, 100, .18);
+}
+
+/* LEYENDA DE COLORES  */
+.leyenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1.4rem;
+  justify-content: center;
+  padding-top: 1.5rem;
+}
+
+.leyenda-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  color: var(--texto-apagado);
+}
+
+.leyenda-punto {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Para pantallas pequeñas */
+
+@media (max-width: 640px) {
+
+  .fila-partido {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-angel {
+    border-right: none;
+    border-bottom: 2px solid var(--angel-borde);
+  }
+
+  .panel-abraham {
+    border-left: none;
+    border-top: 2px solid var(--abraham-borde);
+  }
+
+  header {
+    flex-direction: column;
+  }
+}

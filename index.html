@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Predict Mundial</title>
+  <link rel="stylesheet" href="estilos.css">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+
+<body>
+  <header>
+    <div class="titulo-cabecera">MUNDIAL 2026</div>
+
+    <div class="marcador">
+
+      <div class="jugador">
+        <span class="punto punto-angel"></span>
+        <span>Ángel</span>
+        <span class="puntos-grandes puntos-angel" id="puntos-angel">0</span>
+      </div>
+
+      <span class="elguion">-</span>
+
+      <div class="jugador">
+        <span class="puntos-grandes puntos-abraham" id="puntos-abraham">0</span>
+        <span>Abraham</span>
+        <span class="punto punto-abraham"></span>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+    <div class="tabla-puntos">
+      <div class="regla"><span class="num-pts">+10</span>100% exacto</div>
+      <div class="regla"><span class="num-pts">+8</span>Ganador +diferencia goles</div>
+      <div class="regla"><span class="num-pts">+6</span>Ganador +un lado exacto</div>
+      <div class="regla"><span class="num-pts">+5</span>Empate</div>
+      <div class="regla"><span class="num-pts">+4</span>Ganador acertado</div>
+      <div class="regla"><span class="num-pts">+2</span>Un lado exacto</div>
+      <div class="regla"><span class="num-pts">+0</span>Nada que ver</div>
+    </div>
+
+    <div id="contenedor-partidos"></div>
+
+    <div class="leyenda">
+      <div class="leyenda-item"><span class="leyenda-punto" style="background:#10b981"></span>+10 Exacto</div>
+      <div class="leyenda-item"><span class="leyenda-punto" style="background:#22c55e"></span>+8 Ganador + diferencia de goles</div>
+      <div class="leyenda-item"><span class="leyenda-punto" style="background:#84cc16"></span>+6 Ganador + 1 lado exacto</div>
+      <div class="leyenda-item"><span class="leyenda-punto" style="background:#eab308"></span>+5 Empate acertado</div>
+      <div class="leyenda-item"><span class="leyenda-punto" style="background:#f59e0b"></span>+4 Ganador</div>
+      <div class="leyenda-item"><span class="leyenda-punto" style="background:#f97316"></span>+2 Un lado exacto</div>
+      <div class="leyenda-item"><span class="leyenda-punto" style="background:#dc2626"></span>+0 Nada</div>
+    </div>
+
+  </main>
+
+  <script src="datos.js"></script>
+
+  <script>
+
+    function calcularPuntos(actual, prediccion) {
+
+      // Si no hay resultado, no hay puntos
+      if (!actual || !prediccion) return null;
+
+      const golesLocalReal = actual.home;
+      const golesVisitaReal = actual.away;
+      const golesLocalPred = prediccion.home;
+      const golesVisitaPred = prediccion.away;
+
+      // Resultado exacto
+      if (golesLocalReal === golesLocalPred && golesVisitaReal === golesVisitaPred) {
+        return 10;
+      }
+
+      const ganadorReal = Math.sign(golesLocalReal - golesVisitaReal);
+      const ganadorPred = Math.sign(golesLocalPred - golesVisitaPred);
+
+      const acertoGanador = ganadorReal === ganadorPred;
+      const fueEmpate = ganadorReal === 0;
+
+      const difReal = golesLocalReal - golesVisitaReal;
+      const difPred = golesLocalPred - golesVisitaPred;
+
+      // Misma diferencia de goles (sin ser exacto)
+      if (acertoGanador && difReal === difPred && !fueEmpate) {
+        return 8;
+      }
+
+      // Un gol exacto
+      const unGolExacto = golesLocalReal === golesLocalPred || golesVisitaReal === golesVisitaPred;
+
+      // Ganador + un gol exacto
+      if (acertoGanador && unGolExacto) {
+        return 6;
+      }
+
+      // Empate acertado (sin marcador exacto)
+      if (fueEmpate && ganadorPred === 0) {
+        return 5;
+      }
+
+      // Solo ganador acertado
+      if (!fueEmpate && acertoGanador) {
+        return 4;
+      }
+
+      // Solo un gol exacto
+      if (unGolExacto) {
+        return 2;
+      }
+
+      // Nada acertado
+      return 0;
+    }
+
+    const INFO_BADGES = {
+      10: { clase: 'badge-10', texto: 'Exacto' },
+      8: { clase: 'badge-8', texto: 'Ganador +dif.' },
+      6: { clase: 'badge-6', texto: 'Ganador +un lado exacto' },
+      5: { clase: 'badge-5', texto: 'Empate' },
+      4: { clase: 'badge-4', texto: 'Ganador acertado' },
+      2: { clase: 'badge-2', texto: 'Un lado exacto' },
+      0: { clase: 'badge-0', texto: 'Fallo' },
+    };
+
+    function crearBadge(puntos) {
+      if (puntos === null) {
+        return `<span class="badge badge-pendiente">Pendiente</span>`;
+      }
+      const { clase, texto } = INFO_BADGES[puntos] || INFO_BADGES[0];
+      return `<span class="badge ${clase}">${texto} <strong>+${puntos}</strong></span>`;
+    }
+
+    function crearBandera(equipo) {
+      return `
+        <span class="bandera-wrap">
+          <img
+            class="bandera-img"
+            src="${equipo.flag}"
+            alt="${equipo.nombre}"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <span class="bandera-placeholder">???</span>
+        </span>
+      `;
+    }
+
+    function construirPagina() {
+      let totalPuntosAngel = 0;
+      let totalPuntosAbraham = 0;
+
+      const contenedor = document.getElementById('contenedor-partidos');
+      contenedor.innerHTML = '';
+
+      // Recorrer cada día
+      PARTIDOS_POR_DIA.forEach(dia => {
+
+        // Crear el bloque del día
+        const bloqueDia = document.createElement('div');
+        bloqueDia.className = 'bloque-dia';
+        bloqueDia.innerHTML = `
+          <div class="cabecera-dia">
+            <span class="etiqueta-dia">${dia.fecha}</span>
+            <div class="linea-dia"></div>
+          </div>
+        `;
+
+        // Recorrer los partidos
+        dia.partidos.forEach(partido => {
+
+          const puntosAngel = calcularPuntos(partido.actual, partido.angel);
+          const puntosAbraham = calcularPuntos(partido.actual, partido.abraham);
+
+          // Acumular puntos 
+          if (puntosAngel !== null) totalPuntosAngel += puntosAngel;
+          if (puntosAbraham !== null) totalPuntosAbraham += puntosAbraham;
+
+          const htmlResultado = partido.actual ? `<span class="resultado-real">${partido.actual.home} - ${partido.actual.away}</span>` : `<span class="resultado-real pendiente">? - ?</span>`;
+
+          const htmlPrediccionAngel = partido.angel ? `<span class="prediccion">${partido.angel.home} - ${partido.angel.away}</span>` : `<span class="prediccion pendiente">— —</span>`;
+
+          const htmlPrediccionAbraham = partido.abraham ? `<span class="prediccion">${partido.abraham.home} - ${partido.abraham.away}</span>` : `<span class="prediccion pendiente">— —</span>`;
+
+          // Crear la fila
+          const filaPartido = document.createElement('div');
+          filaPartido.className = 'fila-partido';
+          filaPartido.innerHTML = `
+
+            <div class="panel-lateral panel-angel">
+              <span class="nombre-jugador">Ángel</span>
+              ${htmlPrediccionAngel}
+              ${crearBadge(puntosAngel)}
+            </div>
+
+            <div class="panel-centro">
+              <div class="fila-equipos">
+                ${crearBandera(partido.home)}
+                <span class="nombre-equipo">${partido.home.nombre}</span>
+                <span class="texto-vs">vs</span>
+                <span class="nombre-equipo">${partido.away.nombre}</span>
+                ${crearBandera(partido.away)}
+              </div>
+              ${htmlResultado}
+              <span class="hora-partido">${partido.hora}</span>
+            </div>
+
+            <div class="panel-lateral panel-abraham">
+              <span class="nombre-jugador">Abraham</span>
+              ${htmlPrediccionAbraham}
+              ${crearBadge(puntosAbraham)}
+            </div>
+
+          `;
+
+          bloqueDia.appendChild(filaPartido);
+        });
+
+        contenedor.appendChild(bloqueDia);
+      });
+
+      document.getElementById('puntos-angel').textContent = totalPuntosAngel;
+      document.getElementById('puntos-abraham').textContent = totalPuntosAbraham;
+
+    }
+
+    construirPagina();
+
+  </script>
+
+</body>
+
+</html>
