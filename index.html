@@ -16,17 +16,33 @@
     <div class="marcador">
 
       <div class="jugador">
+        <span class="punto punto-german"></span>
+        <span class="elnombre"><a href="https://x.com/the_cat007uwu" target="_blank">Germán</a></span>
+        <span class="puntos-grandes puntos-german" id="puntos-german">0</span>
+      </div>
+
+      <span class="elguion">|</span>
+
+      <div class="jugador">
         <span class="punto punto-angel"></span>
-        <span>Ángel</span>
+        <span class="elnombre"><a href="https://x.com/angeldev" target="_blank">Ángel</a></span>
         <span class="puntos-grandes puntos-angel" id="puntos-angel">0</span>
       </div>
 
-      <span class="elguion">-</span>
+      <span class="elguion">|</span>
 
       <div class="jugador">
-        <span class="puntos-grandes puntos-abraham" id="puntos-abraham">0</span>
-        <span>Abraham</span>
         <span class="punto punto-abraham"></span>
+        <span class="elnombre">Abraham</span>
+        <span class="puntos-grandes puntos-abraham" id="puntos-abraham">0</span>
+      </div>
+
+      <span class="elguion">|</span>
+
+      <div class="jugador">
+        <span class="punto punto-elena"></span>
+        <span class="elnombre">Elena</span>
+        <span class="puntos-grandes puntos-elena" id="puntos-elena">0</span>
       </div>
 
     </div>
@@ -47,8 +63,10 @@
 
     <div class="leyenda">
       <div class="leyenda-item"><span class="leyenda-punto" style="background:#10b981"></span>+10 Exacto</div>
-      <div class="leyenda-item"><span class="leyenda-punto" style="background:#22c55e"></span>+8 Ganador + diferencia de goles</div>
-      <div class="leyenda-item"><span class="leyenda-punto" style="background:#84cc16"></span>+6 Ganador + 1 lado exacto</div>
+      <div class="leyenda-item"><span class="leyenda-punto" style="background:#22c55e"></span>+8 Ganador + diferencia de
+        goles</div>
+      <div class="leyenda-item"><span class="leyenda-punto" style="background:#84cc16"></span>+6 Ganador + 1 lado exacto
+      </div>
       <div class="leyenda-item"><span class="leyenda-punto" style="background:#eab308"></span>+5 Empate acertado</div>
       <div class="leyenda-item"><span class="leyenda-punto" style="background:#f59e0b"></span>+4 Ganador</div>
       <div class="leyenda-item"><span class="leyenda-punto" style="background:#f97316"></span>+2 Un lado exacto</div>
@@ -62,8 +80,6 @@
   <script>
 
     function calcularPuntos(actual, prediccion) {
-
-      // Si no hay resultado, no hay puntos
       if (!actual || !prediccion) return null;
 
       const golesLocalReal = actual.home;
@@ -71,49 +87,23 @@
       const golesLocalPred = prediccion.home;
       const golesVisitaPred = prediccion.away;
 
-      // Resultado exacto
       if (golesLocalReal === golesLocalPred && golesVisitaReal === golesVisitaPred) {
         return 10;
       }
 
       const ganadorReal = Math.sign(golesLocalReal - golesVisitaReal);
       const ganadorPred = Math.sign(golesLocalPred - golesVisitaPred);
-
       const acertoGanador = ganadorReal === ganadorPred;
       const fueEmpate = ganadorReal === 0;
-
       const difReal = golesLocalReal - golesVisitaReal;
       const difPred = golesLocalPred - golesVisitaPred;
-
-      // Misma diferencia de goles (sin ser exacto)
-      if (acertoGanador && difReal === difPred && !fueEmpate) {
-        return 8;
-      }
-
-      // Un gol exacto
       const unGolExacto = golesLocalReal === golesLocalPred || golesVisitaReal === golesVisitaPred;
 
-      // Ganador + un gol exacto
-      if (acertoGanador && unGolExacto) {
-        return 6;
-      }
-
-      // Empate acertado (sin marcador exacto)
-      if (fueEmpate && ganadorPred === 0) {
-        return 5;
-      }
-
-      // Solo ganador acertado
-      if (!fueEmpate && acertoGanador) {
-        return 4;
-      }
-
-      // Solo un gol exacto
-      if (unGolExacto) {
-        return 2;
-      }
-  
-      // Nada acertado  
+      if (acertoGanador && difReal === difPred && !fueEmpate) return 8;
+      if (acertoGanador && unGolExacto) return 6;
+      if (fueEmpate && ganadorPred === 0) return 5;
+      if (!fueEmpate && acertoGanador) return 4;
+      if (unGolExacto) return 2;
       return 0;
     }
 
@@ -150,16 +140,16 @@
     }
 
     function construirPagina() {
+      let totalPuntosGerman = 0;
       let totalPuntosAngel = 0;
       let totalPuntosAbraham = 0;
+      let totalPuntosElena = 0;
 
       const contenedor = document.getElementById('contenedor-partidos');
       contenedor.innerHTML = '';
 
-      // Recorrer cada día
       PARTIDOS_POR_DIA.forEach(dia => {
 
-        // Crear el bloque del día
         const bloqueDia = document.createElement('div');
         bloqueDia.className = 'bloque-dia';
         bloqueDia.innerHTML = `
@@ -169,49 +159,73 @@
           </div>
         `;
 
-        // Recorrer los partidos
         dia.partidos.forEach(partido => {
 
+          const puntosGerman = calcularPuntos(partido.actual, partido.german);
           const puntosAngel = calcularPuntos(partido.actual, partido.angel);
           const puntosAbraham = calcularPuntos(partido.actual, partido.abraham);
+          const puntosElena = calcularPuntos(partido.actual, partido.elena);
 
-          // Acumular puntos 
+          if (puntosGerman !== null) totalPuntosGerman += puntosGerman;
           if (puntosAngel !== null) totalPuntosAngel += puntosAngel;
           if (puntosAbraham !== null) totalPuntosAbraham += puntosAbraham;
+          if (puntosElena !== null) totalPuntosElena += puntosElena;
 
-          const htmlResultado = partido.actual ? `<span class="resultado-real">${partido.actual.home} - ${partido.actual.away}</span>` : `<span class="resultado-real pendiente">? - ?</span>`;
+          const htmlResultado = partido.actual
+            ? `<span class="resultado-real">${partido.actual.home} - ${partido.actual.away}</span>`
+            : `<span class="resultado-real pendiente">? - ?</span>`;
 
+          const htmlPrediccionGerman = partido.german ? `<span class="prediccion">${partido.german.home} - ${partido.german.away}</span>` : `<span class="prediccion pendiente">— —</span>`;
           const htmlPrediccionAngel = partido.angel ? `<span class="prediccion">${partido.angel.home} - ${partido.angel.away}</span>` : `<span class="prediccion pendiente">— —</span>`;
-
           const htmlPrediccionAbraham = partido.abraham ? `<span class="prediccion">${partido.abraham.home} - ${partido.abraham.away}</span>` : `<span class="prediccion pendiente">— —</span>`;
+          const htmlPrediccionElena = partido.elena ? `<span class="prediccion">${partido.elena.home} - ${partido.elena.away}</span>` : `<span class="prediccion pendiente">— —</span>`;
 
-          // Crear la fila
           const filaPartido = document.createElement('div');
           filaPartido.className = 'fila-partido';
           filaPartido.innerHTML = `
 
-            <div class="panel-lateral panel-angel">
-              <span class="nombre-jugador">Ángel</span>
-              ${htmlPrediccionAngel}
-              ${crearBadge(puntosAngel)}
-            </div>
-
+            <!-- Resultado real -->
             <div class="panel-centro">
               <div class="fila-equipos">
-                ${crearBandera(partido.home)}
-                <span class="nombre-equipo">${partido.home.nombre}</span>
-                <span class="texto-vs">vs</span>
-                <span class="nombre-equipo">${partido.away.nombre}</span>
-                ${crearBandera(partido.away)}
+                <div class="fila-equipos-nombres">
+                  ${crearBandera(partido.home)}
+                  <span class="nombre-equipo">${partido.home.nombre}</span>
+                  <span class="texto-vs">vs</span>
+                  <span class="nombre-equipo">${partido.away.nombre}</span>
+                  ${crearBandera(partido.away)}
+                </div>
               </div>
               ${htmlResultado}
               <span class="hora-partido">${partido.hora}</span>
             </div>
 
-            <div class="panel-lateral panel-abraham">
-              <span class="nombre-jugador">Abraham</span>
-              ${htmlPrediccionAbraham}
-              ${crearBadge(puntosAbraham)}
+            <!-- Predicciones en línea horizontal -->
+            <div class="panel-predicciones">
+
+              <div class="panel-lateral panel-german">
+                <span class="nombre-jugador">Germán</span>
+                ${htmlPrediccionGerman}
+                ${crearBadge(puntosGerman)}
+              </div>
+
+              <div class="panel-lateral panel-angel">
+                <span class="nombre-jugador">Ángel</span>
+                ${htmlPrediccionAngel}
+                ${crearBadge(puntosAngel)}
+              </div>
+
+              <div class="panel-lateral panel-abraham">
+                <span class="nombre-jugador">Abraham</span>
+                ${htmlPrediccionAbraham}
+                ${crearBadge(puntosAbraham)}
+              </div>
+
+              <div class="panel-lateral panel-elena">
+                <span class="nombre-jugador">Elena</span>
+                ${htmlPrediccionElena}
+                ${crearBadge(puntosElena)}
+              </div>
+
             </div>
 
           `;
@@ -222,9 +236,10 @@
         contenedor.appendChild(bloqueDia);
       });
 
+      document.getElementById('puntos-german').textContent = totalPuntosGerman;
       document.getElementById('puntos-angel').textContent = totalPuntosAngel;
       document.getElementById('puntos-abraham').textContent = totalPuntosAbraham;
-
+      document.getElementById('puntos-elena').textContent = totalPuntosElena;
     }
 
     construirPagina();
