@@ -473,19 +473,19 @@ main {
   color: var(--texto-apagado);
 }
 
+.timer-mundial {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--texto-apagado);
+  letter-spacing: 0.08em;
+}
+
 .leyenda-punto {
   width: 8px;
   height: 8px;
   border-radius: 50%;
   display: inline-block;
   flex-shrink: 0;
-}
-
-.timer-mundial {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--texto-apagado);
-  letter-spacing: 0.08em;
 }
 
 
