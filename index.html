@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Predict Mundial</title>
   <link rel="stylesheet" href="estilos.css">
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 
 <body>
   <header>
     <div class="titulo-cabecera">MUNDIAL 2026</div>
-
+    <div class="timer-mundial" id="timer-mundial"><span id="timer-texto">...</span> </div>
     <div class="marcador">
 
       <div class="jugador">
@@ -245,7 +245,30 @@
     construirPagina();
 
   </script>
+  <script>
+    const fechaInicio = new Date('2026-06-11T21:00:00+02:00');
 
+    function actualizarTimer() {
+      const ahora = new Date();
+      const diff = fechaInicio - ahora;
+
+      if (diff <= 0) {
+        document.getElementById('timer-mundial').style.display = 'none';
+        return;
+      }
+
+      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('timer-texto').textContent =
+        `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+    }
+
+    actualizarTimer();
+    setInterval(actualizarTimer, 1000);
+  </script>
 </body>
 
 </html>
