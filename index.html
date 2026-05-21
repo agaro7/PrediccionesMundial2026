@@ -51,10 +51,10 @@
   <main>
     <div class="tabla-puntos">
       <div class="regla"><span class="num-pts">+10</span>100% exacto</div>
-      <div class="regla"><span class="num-pts">+8</span>Ganador +dif. goles</div>
-      <div class="regla"><span class="num-pts">+6</span>Ganador +lado exacto</div>
-      <div class="regla"><span class="num-pts">+5</span>Empate</div>
-      <div class="regla"><span class="num-pts">+4</span>Ganador acertado</div>
+      <div class="regla"><span class="num-pts">+6</span>Ganador +dif. goles</div>
+      <div class="regla"><span class="num-pts">+5</span>Ganador +lado exacto</div>
+      <div class="regla"><span class="num-pts">+5</span>Empate correcto</div>
+      <div class="regla"><span class="num-pts">+3</span>Solo ganador</div>
       <div class="regla"><span class="num-pts">+2</span>Un lado exacto</div>
       <div class="regla"><span class="num-pts">+0</span>Nada que ver</div>
     </div>
@@ -63,12 +63,12 @@
 
     <div class="leyenda">
       <div class="leyenda-item"><span class="leyenda-punto" style="background:#10b981"></span>+10 Exacto</div>
-      <div class="leyenda-item"><span class="leyenda-punto" style="background:#22c55e"></span>+8 Ganador + diferencia de
-        goles</div>
-      <div class="leyenda-item"><span class="leyenda-punto" style="background:#84cc16"></span>+6 Ganador + 1 lado exacto
+      <div class="leyenda-item"><span class="leyenda-punto" style="background:#22c55e"></span>+6 Ganador + dif. goles
+      </div>
+      <div class="leyenda-item"><span class="leyenda-punto" style="background:#84cc16"></span>+5 Ganador + lado exacto
       </div>
       <div class="leyenda-item"><span class="leyenda-punto" style="background:#eab308"></span>+5 Empate acertado</div>
-      <div class="leyenda-item"><span class="leyenda-punto" style="background:#f59e0b"></span>+4 Ganador</div>
+      <div class="leyenda-item"><span class="leyenda-punto" style="background:#f59e0b"></span>+3 Solo ganador</div>
       <div class="leyenda-item"><span class="leyenda-punto" style="background:#f97316"></span>+2 Un lado exacto</div>
       <div class="leyenda-item"><span class="leyenda-punto" style="background:#dc2626"></span>+0 Nada</div>
     </div>
@@ -83,16 +83,9 @@
       if (!actual || !prediccion) return null;
 
       const golesLocalReal = actual.home;
-      
       const golesVisitaReal = actual.away;
-      
       const golesLocalPred = prediccion.home;
-      
       const golesVisitaPred = prediccion.away;
-
-      if (golesLocalReal === golesLocalPred && golesVisitaReal === golesVisitaPred) {
-        return 10;
-      }
 
       const ganadorReal = Math.sign(golesLocalReal - golesVisitaReal);
       const ganadorPred = Math.sign(golesLocalPred - golesVisitaPred);
@@ -102,30 +95,36 @@
       const difPred = golesLocalPred - golesVisitaPred;
       const unGolExacto = golesLocalReal === golesLocalPred || golesVisitaReal === golesVisitaPred;
 
-      if (acertoGanador && difReal === difPred && !fueEmpate) return 8;
-      if (acertoGanador && unGolExacto) return 6;
-      if (fueEmpate && ganadorPred === 0) return 5;
-      if (!fueEmpate && acertoGanador) return 4;
-      if (unGolExacto) return 2;
-      return 0;
+      if (golesLocalReal === golesLocalPred && golesVisitaReal === golesVisitaPred) return 'exacto';
+      if (acertoGanador && difReal === difPred && !fueEmpate) return 'ganador_dif';
+      if (acertoGanador && unGolExacto) return 'ganador_lado';
+      if (fueEmpate && ganadorPred === 0) return 'empate';
+      if (!fueEmpate && acertoGanador) return 'ganador';
+      if (unGolExacto) return 'lado';
+      return 'nada';
     }
 
     const INFO_BADGES = {
-      10: { clase: 'badge-10', texto: 'Exacto' },
-      8: { clase: 'badge-8', texto: 'Ganador +dif.' },
-      6: { clase: 'badge-6', texto: 'Ganador +un lado exacto' },
-      5: { clase: 'badge-5', texto: 'Empate' },
-      4: { clase: 'badge-4', texto: 'Ganador acertado' },
-      2: { clase: 'badge-2', texto: 'Un lado exacto' },
-      0: { clase: 'badge-0', texto: 'Fallo' },
+      'exacto': { clase: 'badge-10', texto: 'Exacto', pts: 10 },
+      'ganador_dif': { clase: 'badge-6', texto: 'Ganador +dif.', pts: 6 },
+      'ganador_lado': { clase: 'badge-5', texto: 'Ganador +lado', pts: 5 },
+      'empate': { clase: 'badge-5b', texto: 'Empate', pts: 5 },
+      'ganador': { clase: 'badge-3', texto: 'Ganador acertado', pts: 3 },
+      'lado': { clase: 'badge-2', texto: 'Un lado exacto', pts: 2 },
+      'nada': { clase: 'badge-0', texto: 'Fallo', pts: 0 },
     };
 
-    function crearBadge(puntos) {
-      if (puntos === null) {
-        return `<span class="badge badge-pendiente">Pendiente</span>`;
-      }
-      const { clase, texto } = INFO_BADGES[puntos] || INFO_BADGES[0];
-      return `<span class="badge ${clase}">${texto} <strong>+${puntos}</strong></span>`;
+    function crearBadge(resultado) {
+      if (resultado === null) return `<span class="badge badge-pendiente">Pendiente</span>`;
+
+      const { clase, texto, pts } = INFO_BADGES[resultado];
+
+      return `<span class="badge ${clase}">${texto} <strong>+${pts}</strong></span>`;
+    }
+
+    function puntosReales(resultado) {
+      if (resultado === null) return 0;
+      return INFO_BADGES[resultado]?.pts ?? 0;
     }
 
     function crearBandera(equipo) {
@@ -169,10 +168,10 @@
           const puntosAbraham = calcularPuntos(partido.actual, partido.abraham);
           const puntosElena = calcularPuntos(partido.actual, partido.elena);
 
-          if (puntosGerman !== null) totalPuntosGerman += puntosGerman;
-          if (puntosAngel !== null) totalPuntosAngel += puntosAngel;
-          if (puntosAbraham !== null) totalPuntosAbraham += puntosAbraham;
-          if (puntosElena !== null) totalPuntosElena += puntosElena;
+          if (puntosGerman !== null) totalPuntosGerman += puntosReales(puntosGerman);
+          if (puntosAngel !== null) totalPuntosAngel += puntosReales(puntosAngel);
+          if (puntosAbraham !== null) totalPuntosAbraham += puntosReales(puntosAbraham);
+          if (puntosElena !== null) totalPuntosElena += puntosReales(puntosElena);
 
           const htmlResultado = partido.actual
             ? `<span class="resultado-real">${partido.actual.home} - ${partido.actual.away}</span>`
