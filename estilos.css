@@ -481,6 +481,14 @@ main {
   flex-shrink: 0;
 }
 
+.timer-mundial {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--texto-apagado);
+  letter-spacing: 0.08em;
+}
+
+
 
 /* MÓVIL */
 @media (max-width: 640px) {
@@ -500,4 +508,6 @@ main {
   header {
     flex-direction: column;
   }
+
+
 }
