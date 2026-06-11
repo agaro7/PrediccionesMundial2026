@@ -486,7 +486,7 @@ main {
 
 
 /* MÓVIL */
-@media (max-width: 640px) {
+@media (max-width: 900px) {
   .fila-partido {
     grid-template-columns: 1fr;
   }
@@ -503,6 +503,16 @@ main {
   header {
     flex-direction: column;
   }
+  .tabla-puntos {
+  flex-wrap: wrap;
+  overflow-x: hidden;
+}
 
+.regla {
+  flex: 0 0 auto;
+  width: 50%;
+  border-right: none;
+  border-bottom: 1px solid var(--borde);
+}
 
 }
