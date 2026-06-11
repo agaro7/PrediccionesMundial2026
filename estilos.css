@@ -1,8 +1,8 @@
 :root {
   /* Colores de cada uno */
-  --german: #ef4444;
-  --german-fondo: rgba(239, 68, 68, 0.12);
-  --german-borde: rgba(239, 68, 68, 0.22);
+  --josejuan: #ef4444;
+  --josejuan-fondo: rgba(239, 68, 68, 0.12);
+  --josejuan-borde: rgba(239, 68, 68, 0.22);
 
   --angel: #38bdf8;
   --angel-fondo: rgba(56, 189, 248, 0.12);
@@ -83,8 +83,8 @@ header {
   border-radius: 50%;
 }
 
-.punto-german {
-  background: var(--german);
+.punto-josejuan {
+  background: var(--josejuan);
 }
 
 .punto-angel {
@@ -105,8 +105,8 @@ header {
   line-height: 1;
 }
 
-.puntos-german {
-  color: var(--german);
+.puntos-josejuan {
+  color: var(--josejuan);
 }
 
 .puntos-angel {
@@ -145,6 +145,7 @@ main {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: hidden;
+
 }
 
 .regla {
@@ -301,8 +302,8 @@ main {
   border-right: none;
 }
 
-.panel-german {
-  background: var(--german-fondo);
+.panel-josejuan {
+  background: var(--josejuan-fondo);
   align-items: center;
 }
 
@@ -328,8 +329,8 @@ main {
   text-transform: uppercase;
 }
 
-.panel-german .nombre-jugador {
-  color: var(--german);
+.panel-josejuan .nombre-jugador {
+  color: var(--josejuan);
 }
 
 .panel-angel .nombre-jugador {
@@ -483,6 +484,67 @@ main {
   letter-spacing: 0.08em;
 }
 
+.popup-regla {
+  position: fixed;
+  background: #1e1e1e;
+  border: 1px solid #3a3a3a;
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  max-width: 280px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  z-index: 999;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.popup-regla.visible {
+  opacity: 1;
+}
+
+.popup-titulo {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: YellowGreen;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.05em;
+}
+
+.popup-ejemplo {
+  font-size: 0.78rem;
+  color: #aaa;
+  line-height: 1.5;
+}
+
+.separador-jornada {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 3rem 0 1.5rem;
+}
+
+.separador-jornada::before,
+.separador-jornada::after {
+  content: '';
+  flex: 1;
+  height: 4px;
+  background: #e2e2e2;
+  border-radius: 2px;
+}
+
+.separador-jornada span {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.2em;
+  color: #e2e2e2;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+
+
+
+
 
 
 /* MÓVIL */
@@ -503,16 +565,18 @@ main {
   header {
     flex-direction: column;
   }
-  .tabla-puntos {
-  flex-wrap: wrap;
-  overflow-x: hidden;
-}
 
-.regla {
-  flex: 0 0 auto;
-  width: 50%;
-  border-right: none;
-  border-bottom: 1px solid var(--borde);
-}
+  .tabla-puntos {
+    flex-wrap: wrap;
+    overflow-x: hidden;
+  }
+
+  .regla {
+    flex: 0 0 auto;
+    width: 50%;
+    border-right: none;
+    border-bottom: 1px solid var(--borde);
+  }
+
 
 }
