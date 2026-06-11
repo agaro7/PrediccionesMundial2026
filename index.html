@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Predict Mundial</title>
+  <title>Predicciones del Mundial 2026</title>
   <link rel="stylesheet" href="estilos.css">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
@@ -16,17 +16,17 @@
     <div class="marcador">
 
       <div class="jugador">
-        <span class="punto punto-german"></span>
-        <span>Germán</span>
-        <span class="puntos-grandes puntos-german" id="puntos-german">0</span>
+        <span class="punto punto-angel"></span>
+        <span>Ángel</span>
+        <span class="puntos-grandes puntos-angel" id="puntos-angel">0</span>
       </div>
 
       <span class="elguion">|</span>
 
       <div class="jugador">
-        <span class="punto punto-angel"></span>
-        <span>Ángel</span>
-        <span class="puntos-grandes puntos-angel" id="puntos-angel">0</span>
+        <span class="punto punto-elena"></span>
+        <span>Elena</span>
+        <span class="puntos-grandes puntos-elena" id="puntos-elena">0</span>
       </div>
 
       <span class="elguion">|</span>
@@ -40,9 +40,9 @@
       <span class="elguion">|</span>
 
       <div class="jugador">
-        <span class="punto punto-elena"></span>
-        <span>Elena</span>
-        <span class="puntos-grandes puntos-elena" id="puntos-elena">0</span>
+        <span class="punto punto-josejuan"></span>
+        <span>José Juan</span>
+        <span class="puntos-grandes puntos-josejuan" id="puntos-josejuan">0</span>
       </div>
 
     </div>
@@ -50,15 +50,33 @@
 
   <main>
     <div class="tabla-puntos">
-      <div class="regla"><span class="num-pts">+10</span>100% exacto</div>
-      <div class="regla"><span class="num-pts">+6</span>Ganador +dif. goles</div>
-      <div class="regla"><span class="num-pts">+5</span>Ganador +lado exacto</div>
-      <div class="regla"><span class="num-pts">+5</span>Empate correcto</div>
-      <div class="regla"><span class="num-pts">+3</span>Solo ganador</div>
-      <div class="regla"><span class="num-pts">+2</span>Un lado exacto</div>
-      <div class="regla"><span class="num-pts">+0</span>Nada que ver</div>
+      <div class="regla" data-titulo="+10 Exacto" data-ejemplo="Ej: Predices 2-1: Sale 2-1 ✅">
+        <span class="num-pts">+10</span>100% exacto
+      </div>
+      <div class="regla" data-titulo="+6 Ganador +dif."
+        data-ejemplo="Ej: Predices 3-1: Sale 4-2 ✅ (mismo ganador, misma diferencia de 2)">
+        <span class="num-pts">+6</span>Ganador +dif. goles
+      </div>
+      <div class="regla" data-titulo="+5 Ganador +lado exacto"
+        data-ejemplo="Ej: Predices 2-1: Sale 4-1 ✅ (mismo ganador, acertaste el 1 del 'visitante')">
+        <span class="num-pts">+5</span>Ganador +lado exacto
+      </div>
+      <div class="regla" data-titulo="+5 Empate correcto"
+        data-ejemplo="Ej: Predices 1-1: Sale 2-2 ✅ (acertaste que quedarían empate)">
+        <span class="num-pts">+5</span>Empate correcto
+      </div>
+      <div class="regla" data-titulo="+3 Solo ganador"
+        data-ejemplo="Ej: Predices 2-1: Sale 5-0 ✅ (mismo ganador pero nada más)">
+        <span class="num-pts">+3</span>Solo ganador
+      </div>
+      <div class="regla" data-titulo="+2 Un lado exacto"
+        data-ejemplo="Ej: Predices 0-2: Sale 3-2 ✅ (acertaste el 2 del 'visitante' pero ganador distinto)">
+        <span class="num-pts">+2</span>Un lado exacto
+      </div>
+      <div class="regla" data-titulo="+0 Nada" data-ejemplo="Ej: Predices 2-1: Sale 0-3 ❌ (todo mal)">
+        <span class="num-pts">+0</span>Nada que ver
+      </div>
     </div>
-
     <div id="contenedor-partidos"></div>
 
     <div class="leyenda">
@@ -150,18 +168,27 @@
       const contenedor = document.getElementById('contenedor-partidos');
       contenedor.innerHTML = '';
 
+      let jornadaActual = null;
+
       PARTIDOS_POR_DIA.forEach(dia => {
 
         const bloqueDia = document.createElement('div');
         bloqueDia.className = 'bloque-dia';
         bloqueDia.innerHTML = `
-          <div class="cabecera-dia">
-            <span class="etiqueta-dia">${dia.fecha}</span>
-            <div class="linea-dia"></div>
-          </div>
-        `;
+      <div class="cabecera-dia">
+        <span class="etiqueta-dia">${dia.fecha}</span>
+        <div class="linea-dia"></div>
+      </div>`;
 
         dia.partidos.forEach(partido => {
+
+          if (partido.jornada !== jornadaActual) {
+            jornadaActual = partido.jornada;
+            const separador = document.createElement('div');
+            separador.className = 'separador-jornada';
+            separador.innerHTML = `<span>JORNADA ${partido.jornada}</span>`;
+            contenedor.appendChild(separador);
+          }
 
           const puntosJoseJuan = calcularPuntos(partido.actual, partido.josejuan);
           const puntosAngel = calcularPuntos(partido.actual, partido.angel);
@@ -177,7 +204,7 @@
             ? `<span class="resultado-real">${partido.actual.home} - ${partido.actual.away}</span>`
             : `<span class="resultado-real pendiente">? - ?</span>`;
 
-          const htmlPrediccionGerman = partido.josejuan ? `<span class="prediccion">${partido.josejuan.home} - ${partido.josejuan.away}</span>` : `<span class="prediccion pendiente">— —</span>`;
+          const htmlPrediccionJoseJuan = partido.josejuan ? `<span class="prediccion">${partido.josejuan.home} - ${partido.josejuan.away}</span>` : `<span class="prediccion pendiente">— —</span>`;
           const htmlPrediccionAngel = partido.angel ? `<span class="prediccion">${partido.angel.home} - ${partido.angel.away}</span>` : `<span class="prediccion pendiente">— —</span>`;
           const htmlPrediccionAbraham = partido.abraham ? `<span class="prediccion">${partido.abraham.home} - ${partido.abraham.away}</span>` : `<span class="prediccion pendiente">— —</span>`;
           const htmlPrediccionElena = partido.elena ? `<span class="prediccion">${partido.elena.home} - ${partido.elena.away}</span>` : `<span class="prediccion pendiente">— —</span>`;
@@ -185,52 +212,41 @@
           const filaPartido = document.createElement('div');
           filaPartido.className = 'fila-partido';
           filaPartido.innerHTML = `
-
-            <!-- Resultado real -->
-            <div class="panel-centro">
-              <div class="fila-equipos">
-                <div class="fila-equipos-nombres">
-                  ${crearBandera(partido.home)}
-                  <span class="nombre-equipo">${partido.home.nombre}</span>
-                  <span class="texto-vs">vs</span>
-                  <span class="nombre-equipo">${partido.away.nombre}</span>
-                  ${crearBandera(partido.away)}
-                </div>
-              </div>
-              ${htmlResultado}
-              <span class="hora-partido">${partido.hora}</span>
+        <div class="panel-centro">
+          <div class="fila-equipos">
+            <div class="fila-equipos-nombres">
+              ${crearBandera(partido.home)}
+              <span class="nombre-equipo">${partido.home.nombre}</span>
+              <span class="texto-vs">vs</span>
+              <span class="nombre-equipo">${partido.away.nombre}</span>
+              ${crearBandera(partido.away)}
             </div>
-
-            <!-- Predicciones en línea horizontal -->
-            <div class="panel-predicciones">
-
-              <div class="panel-lateral panel-german">
-                <span class="nombre-jugador">Germán</span>
-                ${htmlPrediccionGerman}
-                ${crearBadge(puntosGerman)}
-              </div>
-
-              <div class="panel-lateral panel-angel">
-                <span class="nombre-jugador">Ángel</span>
-                ${htmlPrediccionAngel}
-                ${crearBadge(puntosAngel)}
-              </div>
-
-              <div class="panel-lateral panel-abraham">
-                <span class="nombre-jugador">Abraham</span>
-                ${htmlPrediccionAbraham}
-                ${crearBadge(puntosAbraham)}
-              </div>
-
-              <div class="panel-lateral panel-elena">
-                <span class="nombre-jugador">Elena</span>
-                ${htmlPrediccionElena}
-                ${crearBadge(puntosElena)}
-              </div>
-
-            </div>
-
-          `;
+          </div>
+          ${htmlResultado}
+          <span class="hora-partido">${partido.hora}</span>
+        </div>
+        <div class="panel-predicciones">
+          <div class="panel-lateral panel-angel">
+            <span class="nombre-jugador">Ángel</span>
+            ${htmlPrediccionAngel}
+            ${crearBadge(puntosAngel)}
+          </div>
+          <div class="panel-lateral panel-elena">
+            <span class="nombre-jugador">Elena</span>
+            ${htmlPrediccionElena}
+            ${crearBadge(puntosElena)}
+          </div>
+          <div class="panel-lateral panel-abraham">
+            <span class="nombre-jugador">Abraham</span>
+            ${htmlPrediccionAbraham}
+            ${crearBadge(puntosAbraham)}
+          </div>
+          <div class="panel-lateral panel-josejuan">
+            <span class="nombre-jugador">José Juan</span>
+            ${htmlPrediccionJoseJuan}
+            ${crearBadge(puntosJoseJuan)}
+          </div>
+        </div>`;
 
           bloqueDia.appendChild(filaPartido);
         });
@@ -270,6 +286,57 @@
 
     actualizarTimer();
     setInterval(actualizarTimer, 1000);
+  </script>
+
+  <div id="popup-regla" class="popup-regla">
+    <div class="popup-titulo" id="popup-titulo"></div>
+    <div class="popup-ejemplo" id="popup-ejemplo"></div>
+  </div>
+
+  <script>
+    const popup = document.getElementById('popup-regla');
+    const pTitulo = document.getElementById('popup-titulo');
+    const pEjemplo = document.getElementById('popup-ejemplo');
+
+    document.querySelectorAll('.regla').forEach(regla => {
+      // Mouse
+      document.querySelectorAll('.regla').forEach(regla => {
+        regla.addEventListener('mouseover', (e) => mostrarPopup(e, regla));
+        regla.addEventListener('mousemove', (e) => moverPopup(e));
+        regla.addEventListener('mouseleave', () => ocultarPopup());
+
+        regla.addEventListener('touchstart', (e) => {
+          e.preventDefault();
+          mostrarPopup(e.touches[0], regla);
+          setTimeout(ocultarPopup, 2500);
+        });
+      });
+
+      // Táctil
+      regla.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        mostrarPopup(e.touches[0], regla);
+        setTimeout(ocultarPopup, 2500); // se cierra solo a los 2.5s
+      });
+    });
+
+    function mostrarPopup(e, regla) {
+      pTitulo.textContent = regla.dataset.titulo;
+      pEjemplo.textContent = regla.dataset.ejemplo;
+      popup.classList.add('visible');
+      moverPopup(e);
+    }
+
+    function moverPopup(e) {
+      const x = e.clientX ?? e.pageX;
+      const y = e.clientY ?? e.pageY;
+      popup.style.left = (e.clientX + 14) + 'px';
+      popup.style.top = (e.clientY - 10) + 'px';
+    }
+
+    function ocultarPopup() {
+      popup.classList.remove('visible');
+    }
   </script>
 </body>
 
