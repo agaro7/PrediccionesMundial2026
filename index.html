@@ -142,7 +142,7 @@
     }
 
     function construirPagina() {
-      let totalPuntosGerman = 0;
+      let totalPuntosJoseJuan = 0;
       let totalPuntosAngel = 0;
       let totalPuntosAbraham = 0;
       let totalPuntosElena = 0;
@@ -163,12 +163,12 @@
 
         dia.partidos.forEach(partido => {
 
-          const puntosGerman = calcularPuntos(partido.actual, partido.german);
+          const puntosJoseJuan = calcularPuntos(partido.actual, partido.josejuan);
           const puntosAngel = calcularPuntos(partido.actual, partido.angel);
           const puntosAbraham = calcularPuntos(partido.actual, partido.abraham);
           const puntosElena = calcularPuntos(partido.actual, partido.elena);
 
-          if (puntosGerman !== null) totalPuntosGerman += puntosReales(puntosGerman);
+          if (puntosJoseJuan !== null) totalPuntosJoseJuan += puntosReales(puntosJoseJuan);
           if (puntosAngel !== null) totalPuntosAngel += puntosReales(puntosAngel);
           if (puntosAbraham !== null) totalPuntosAbraham += puntosReales(puntosAbraham);
           if (puntosElena !== null) totalPuntosElena += puntosReales(puntosElena);
@@ -177,7 +177,7 @@
             ? `<span class="resultado-real">${partido.actual.home} - ${partido.actual.away}</span>`
             : `<span class="resultado-real pendiente">? - ?</span>`;
 
-          const htmlPrediccionGerman = partido.german ? `<span class="prediccion">${partido.german.home} - ${partido.german.away}</span>` : `<span class="prediccion pendiente">— —</span>`;
+          const htmlPrediccionGerman = partido.josejuan ? `<span class="prediccion">${partido.josejuan.home} - ${partido.josejuan.away}</span>` : `<span class="prediccion pendiente">— —</span>`;
           const htmlPrediccionAngel = partido.angel ? `<span class="prediccion">${partido.angel.home} - ${partido.angel.away}</span>` : `<span class="prediccion pendiente">— —</span>`;
           const htmlPrediccionAbraham = partido.abraham ? `<span class="prediccion">${partido.abraham.home} - ${partido.abraham.away}</span>` : `<span class="prediccion pendiente">— —</span>`;
           const htmlPrediccionElena = partido.elena ? `<span class="prediccion">${partido.elena.home} - ${partido.elena.away}</span>` : `<span class="prediccion pendiente">— —</span>`;
@@ -238,7 +238,7 @@
         contenedor.appendChild(bloqueDia);
       });
 
-      document.getElementById('puntos-german').textContent = totalPuntosGerman;
+      document.getElementById('puntos-josejuan').textContent = totalPuntosJoseJuan;
       document.getElementById('puntos-angel').textContent = totalPuntosAngel;
       document.getElementById('puntos-abraham').textContent = totalPuntosAbraham;
       document.getElementById('puntos-elena').textContent = totalPuntosElena;
