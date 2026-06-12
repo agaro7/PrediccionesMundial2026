@@ -35,7 +35,7 @@ const PARTIDOS_POR_DIA = [
         away: { nombre: "República Checa", flag: "images/repcheca.png" },
         hora: "04:00",
         jornada: 1,
-        actual: null,
+        actual: { home: 2, away: 1 },
         angel: { home: 2, away: 2 },
         josejuan: { home: 1, away: 0 },
         abraham: { home: 0, away: 2 },
