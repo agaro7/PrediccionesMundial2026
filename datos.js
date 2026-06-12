@@ -46,7 +46,7 @@ const PARTIDOS_POR_DIA = [
         away: { nombre: "Bosnia y Herzegovina", flag: "images/bosnia.png" },
         hora: "21:00",
         jornada: 1,
-        actual: null,
+        actual: { home: 0, away: 0 },
         angel: { home: 0, away: 1 },
         josejuan: { home: 2, away: 0 },
         abraham: { home: 0, away: 0 },
