@@ -93,14 +93,7 @@
 
   </main>
 
-  <script>
-  fetch('datos.js?t=' + Date.now())
-    .then(r => r.text())
-    .then(code => {
-      eval(code);
-      construirPagina();
-    });
-</script>
+  <script src="datos.js"></script>
 
   <script>
 
@@ -267,7 +260,7 @@
       document.getElementById('puntos-elena').textContent = totalPuntosElena;
     }
 
-    //construirPagina();
+    construirPagina();
 
   </script>
   <script>
