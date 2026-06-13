@@ -84,7 +84,7 @@ const PARTIDOS_POR_DIA = [
         away: { nombre: "Suiza", flag: "images/suiza.png" },
         hora: "21:00",
         jornada: 1,
-        actual: null,
+        actual: { home: 1, home: 1 },
         angel: { home: 1, away: 3 },
         josejuan: { home: 0, away: 2 },
         abraham: { home: 1, away: 1 },
