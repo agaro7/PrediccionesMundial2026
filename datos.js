@@ -73,7 +73,7 @@ const PARTIDOS_POR_DIA = [
         away: { nombre: "Paraguay", flag: "images/paraguay.png" },
         hora: "03:00",
         jornada: 1,
-        actual: null,
+        actual: { home: 4, away: 1 },
         angel: { home: 0, away: 0 },
         josejuan: { home: 2, away: 3 },
         abraham: { home: 1, away: 2 },
