@@ -155,7 +155,7 @@ const PARTIDOS_POR_DIA = [
         away: { nombre: "Japón", flag: "images/japon.png" },
         hora: "22:00",
         jornada: 1,
-        actual: { home: 1, away: 0 },
+        actual: { home: 1, away: 1 },
         angel: { home: 1, away: 1 },
         josejuan: { home: 3, away: 1 },
         abraham: { home: 2, away: 2 },
