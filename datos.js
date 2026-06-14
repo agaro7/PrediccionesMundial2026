@@ -144,7 +144,7 @@ const PARTIDOS_POR_DIA = [
         away: { nombre: "Curazao", flag: "images/curazao.png" },
         hora: "19:00",
         jornada: 1,
-        actual: { home: 6, away: 1 },
+        actual: { home: 7, away: 1 },
         angel: { home: 5, away: 0 },
         josejuan: { home: 5, away: 0 },
         abraham: { home: 3, away: 0 },
