@@ -122,7 +122,7 @@ const PARTIDOS_POR_DIA = [
         away: { nombre: "Escocia", flag: "images/escocia.png" },
         hora: "03:00",
         jornada: 1,
-        actual: null,
+        actual: { home: 0, away: 1 },
         angel: { home: 0, away: 3 },
         josejuan: { home: 0, away: 4 },
         abraham: { home: 0, away: 0 },
