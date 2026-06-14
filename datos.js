@@ -111,7 +111,7 @@ const PARTIDOS_POR_DIA = [
         away: { nombre: "Marruecos", flag: "images/marruecos.png" },
         hora: "00:00",
         jornada: 1,
-        actual: null,
+        actual: { home: 1, away: 1 },
         angel: { home: 2, away: 2 },
         josejuan: { home: 3, away: 0 },
         abraham: { home: 3, away: 2 },
