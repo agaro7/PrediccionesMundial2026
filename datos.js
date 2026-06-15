@@ -204,7 +204,7 @@ const PARTIDOS_POR_DIA = [
         away: { nombre: "Cabo Verde", flag: "images/cv.png" },
         hora: "18:00",
         jornada: 1,
-        actual: null,
+        actual: { home: 0, away: 0 },
         angel: { home: 4, away: 1 },
         josejuan: { home: 5, away: 1 },
         abraham: { home: 3, away: 0 },
