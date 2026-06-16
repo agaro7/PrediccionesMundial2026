@@ -253,7 +253,7 @@ const PARTIDOS_POR_DIA = [
         away: { nombre: "Nueva Zelanda", flag: "images/nz.png" },
         hora: "03:00",
         jornada: 1,
-        actual: null,
+        actual: { home: 2, away: 2 },
         angel: { home: 2, away: 0 },
         josejuan: { home: 2, away: 0 },
         abraham: { home: 2, away: 1 },
