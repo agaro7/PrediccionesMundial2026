@@ -324,7 +324,7 @@ const PARTIDOS_POR_DIA = [
         away: { nombre: "R.D. del Congo", flag: "images/rdcongo.png" },
         hora: "19:00",
         jornada: 1,
-        actual: null,
+        actual: { home: 1, away: 1 },
         angel: { home: 3, away: 0 },
         josejuan: { home: 3, away: 0 },
         abraham: { home: 2, away: 0 },
