@@ -752,7 +752,7 @@ const PARTIDOS_POR_DIA = [
       {
         home: { nombre: "Suiza", flag: "images/suiza.png" },
         away: { nombre: "Canadá", flag: "images/canada.png" },
-        hora: "19:00",
+        hora: "21:00",
         jornada: 3,
         actual: null,
         angel: { home: 2, away: 0 },
@@ -763,7 +763,7 @@ const PARTIDOS_POR_DIA = [
       {
         home: { nombre: "Bosnia y Herzegovina", flag: "images/bosnia.png" },
         away: { nombre: "Catar", flag: "images/catar.png" },
-        hora: "22:00",
+        hora: "21:00",
         jornada: 3,
         actual: null,
         angel: { home: 2, away: 1 },
