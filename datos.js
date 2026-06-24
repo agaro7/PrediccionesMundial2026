@@ -1027,9 +1027,6 @@ const PARTIDOS_POR_DIA = [
 
 
 
-
-
-
   {
     fecha: "Domingo, 28 de junio",
     partidos: [
