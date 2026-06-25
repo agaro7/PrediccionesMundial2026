@@ -1078,4 +1078,368 @@ const PARTIDOS_POR_DIA = [
   },
 
 
+
+
+
+
+
+  {
+    fecha: "Domingo, 28 de junio",
+    partidos: [
+      {
+        home: { nombre: "Sudáfrica", flag: "images/sudafrica.png" },
+        away: { nombre: "Canadá", flag: "images/canada.png" },
+        hora: "21:00",
+        jornada: 4,
+        actual: null,
+        angel: { home: 1, away: 2 },
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+    ]
+  },
+
+
+
+  {
+    fecha: "Lunes, 29 de junio",
+    partidos: [
+      {
+        home: { nombre: "Brasil", flag: "images/brasil.png" },
+        away: { nombre: "2º Grupo F", flag: "images/pd.png" },
+        hora: "19:00",
+        jornada: 4,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+      {
+        home: { nombre: "Alemania", flag: "images/alemania.png" },
+        away: { nombre: "3º Grupo A/B/C/D/F", flag: "images/pd.png" },
+        hora: "22:30",
+        jornada: 4,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+    ]
+  },
+
+  {
+    fecha: "Martes, 30 de junio",
+    partidos: [
+      {
+        home: { nombre: "1º Grupo F", flag: "images/pd.png" },
+        away: { nombre: "Marruecos", flag: "images/marruecos.png" },
+        hora: "03:00",
+        jornada: 4,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+      {
+        home: { nombre: "2º Grupo E", flag: "images/pd.png" },
+        away: { nombre: "2º Grupo I", flag: "images/pd.png" },
+        hora: "19:00",
+        jornada: 4,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+      {
+        home: { nombre: "1º Grupo I", flag: "images/pd.png" },
+        away: { nombre: "3º Grupo C/D/F/G/H", flag: "images/pd.png" },
+        hora: "23:00",
+        jornada: 4,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+    ]
+  },
+
+
+  {
+    fecha: "Miércoles, 1 de julio",
+    partidos: [
+      {
+        home: { nombre: "México", flag: "images/mexico.png" },
+        away: { nombre: "3º Grupo C/E/F/H/I", flag: "images/pd.png" },
+        hora: "03:00",
+        jornada: 4,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+      {
+        home: { nombre: "1º Grupo L", flag: "images/pd.png" },
+        away: { nombre: "3º Grupo E/H/I/J/K", flag: "images/pd.png" },
+        hora: "18:00",
+        jornada: 4,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+      {
+        home: { nombre: "1º Grupo G", flag: "images/pd.png" },
+        away: { nombre: "3º Grupo A/E/H/I/J", flag: "images/pd.png" },
+        hora: "22:00",
+        jornada: 4,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+    ]
+  },
+
+
+
+
+
+  {
+    fecha: "Jueves, 2 de julio",
+    partidos: [
+      {
+        home: { nombre: "Estados Unidos", flag: "images/eeuu.png" },
+        away: { nombre: "3º Grupo B/E/F/I/J", flag: "images/pd.png" },
+        hora: "02:00",
+        jornada: 4,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+      {
+        home: { nombre: "1º Grupo H", flag: "images/pd.png" },
+        away: { nombre: "2º Grupo J", flag: "images/pd.png" },
+        hora: "21:00",
+        jornada: 4,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+    ]
+  },
+
+
+
+
+  {
+    fecha: "Viernes, 3 de julio",
+    partidos: [
+      {
+        home: { nombre: "2º Grupo K", flag: "images/pd.png" },
+        away: { nombre: "2º Grupo L", flag: "images/pd.png" },
+        hora: "01:00",
+        jornada: 4,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+      {
+        home: { nombre: "Suiza", flag: "images/suiza.png" },
+        away: { nombre: "3º Grupo E/F/G/I/J", flag: "images/pd.png" },
+        hora: "05:00",
+        jornada: 4,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+      {
+        home: { nombre: "2º Grupo D", flag: "images/pd.png" },
+        away: { nombre: "2º Grupo G", flag: "images/pd.png" },
+        hora: "20:00",
+        jornada: 4,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+    ]
+  },
+
+
+
+
+
+  {
+    fecha: "Sábado, 4 de julio",
+    partidos: [
+      {
+        home: { nombre: "Argentina", flag: "images/argentina.png" },
+        away: { nombre: "2º Grupo H", flag: "images/pd.png" },
+        hora: "00:00",
+        jornada: 4,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+      {
+        home: { nombre: "1º Grupo K", flag: "images/pd.png" },
+        away: { nombre: "3º Grupo D/E/I/J/L", flag: "images/pd.png" },
+        hora: "03:30",
+        jornada: 4,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+    ]
+  },
+
+
+
+
+
+
+
+
+
+
+  {
+    fecha: "Sábado, 4 de julio",
+    partidos: [
+      {
+        home: { nombre: "Por definir", flag: "images/pd.png" },
+        away: { nombre: "Por definir", flag: "images/pd.png" },
+        hora: "19:00",
+        jornada: 5,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+      {
+        home: { nombre: "Por definir", flag: "images/pd.png" },
+        away: { nombre: "Por definir", flag: "images/pd.png" },
+        hora: "23:00",
+        jornada: 5,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+    ]
+  },
+
+
+  {
+    fecha: "Domingo, 5 de julio",
+    partidos: [
+      {
+        home: { nombre: "Por definir", flag: "images/pd.png" },
+        away: { nombre: "Por definir", flag: "images/pd.png" },
+        hora: "22:00",
+        jornada: 5,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+    ]
+  },
+
+  {
+    fecha: "Lunes, 6 de julio",
+    partidos: [
+      {
+        home: { nombre: "Por definir", flag: "images/pd.png" },
+        away: { nombre: "Por definir", flag: "images/pd.png" },
+        hora: "02:00",
+        jornada: 5,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+      {
+        home: { nombre: "Por definir", flag: "images/pd.png" },
+        away: { nombre: "Por definir", flag: "images/pd.png" },
+        hora: "21:00",
+        jornada: 5,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+    ]
+  },
+
+  {
+    fecha: "Martes, 7 de julio",
+    partidos: [
+      {
+        home: { nombre: "Por definir", flag: "images/pd.png" },
+        away: { nombre: "Por definir", flag: "images/pd.png" },
+        hora: "02:00",
+        jornada: 5,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+      {
+        home: { nombre: "Por definir", flag: "images/pd.png" },
+        away: { nombre: "Por definir", flag: "images/pd.png" },
+        hora: "18:00",
+        jornada: 5,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+      {
+        home: { nombre: "Por definir", flag: "images/pd.png" },
+        away: { nombre: "Por definir", flag: "images/pd.png" },
+        hora: "22:00",
+        jornada: 5,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+    ]
+  },
+
+
+  
+
+
+
 ];
