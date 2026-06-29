@@ -1328,7 +1328,7 @@ const PARTIDOS_POR_DIA = [
     fecha: "Sábado, 4 de julio",
     partidos: [
       {
-        home: { nombre: "Por definir", flag: "images/pd.png" },
+        home: { nombre: "Canadá", flag: "images/canada.png" },
         away: { nombre: "Por definir", flag: "images/pd.png" },
         hora: "19:00",
         jornada: 5,
@@ -1339,7 +1339,7 @@ const PARTIDOS_POR_DIA = [
         elena: null,
       },
       {
-        home: { nombre: "Por definir", flag: "images/pd.png" },
+        home: { nombre: "Paraguay", flag: "images/paraguay.png" },
         away: { nombre: "Por definir", flag: "images/pd.png" },
         hora: "23:00",
         jornada: 5,
@@ -1357,7 +1357,7 @@ const PARTIDOS_POR_DIA = [
     fecha: "Domingo, 5 de julio",
     partidos: [
       {
-        home: { nombre: "Por definir", flag: "images/pd.png" },
+        home: { nombre: "Brasil", flag: "images/brasil.png" },
         away: { nombre: "Por definir", flag: "images/pd.png" },
         hora: "22:00",
         jornada: 5,
