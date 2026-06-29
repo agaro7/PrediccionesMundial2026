@@ -1114,7 +1114,7 @@ const PARTIDOS_POR_DIA = [
         angel: { home: 3, away: 1 },
         josejuan: { home: 2, away: 0 },
         abraham: { home: 3, away: 2 },
-        elena: null,
+        elena: { home: 2, away: 3 },
       },
       {
         home: { nombre: "Alemania", flag: "images/alemania.png" },
