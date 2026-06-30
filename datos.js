@@ -1329,7 +1329,7 @@ const PARTIDOS_POR_DIA = [
     partidos: [
       {
         home: { nombre: "Canadá", flag: "images/canada.png" },
-        away: { nombre: "Por definir", flag: "images/pd.png" },
+        away: { nombre: "Marruecos", flag: "images/marruecos.png" },
         hora: "19:00",
         jornada: 5,
         actual: null,
