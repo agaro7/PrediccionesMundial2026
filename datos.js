@@ -1138,11 +1138,11 @@ const PARTIDOS_POR_DIA = [
         away: { nombre: "Marruecos", flag: "images/marruecos.png" },
         hora: "03:00",
         jornada: 4,
-        actual: null,
+        actual: { home: 1, away: 1 },
         angel: { home: 3, away: 2 },
         josejuan: { home: 2, away: 2 },
         abraham: { home: 0, away: 1 },
-        elena: null,
+        elena: { home: 2, away: 1 },
       },
       {
         home: { nombre: "Costa de Marfil", flag: "images/cdm.png" },
@@ -1153,7 +1153,7 @@ const PARTIDOS_POR_DIA = [
         angel: { home: 1, away: 3 },
         josejuan: { home: 0, away: 1 },
         abraham: { home: 0, away: 0 },
-        elena: null,
+        elena: { home: 1, away: 3 },
       },
       {
         home: { nombre: "Francia", flag: "images/francia.png" },
@@ -1164,7 +1164,7 @@ const PARTIDOS_POR_DIA = [
         angel: { home: 3, away: 0 },
         josejuan: { home: 2, away: 1 },
         abraham: { home: 2, away: 0 },
-        elena: null,
+        elena: { home: 2, away: 3 },
       },
     ]
   },
@@ -1182,7 +1182,7 @@ const PARTIDOS_POR_DIA = [
         angel: { home: 2, away: 1 },
         josejuan: { home: 1, away: 1 },
         abraham: { home: 2, away: 2 },
-        elena: null,
+        elena: { home: 2, away: 0 },
       },
       {
         home: { nombre: "Inglaterra", flag: "images/inglaterra.png" },
@@ -1193,7 +1193,7 @@ const PARTIDOS_POR_DIA = [
         angel: { home: 2, away: 1 },
         josejuan: { home: 3, away: 0 },
         abraham: { home: 2, away: 0 },
-        elena: null,
+        elena: { home: 1, away: 1 },
       },
       {
         home: { nombre: "Bélgica", flag: "images/belgica.png" },
@@ -1204,7 +1204,7 @@ const PARTIDOS_POR_DIA = [
         angel: { home: 1, away: 2 },
         josejuan: { home: 2, away: 0 },
         abraham: { home: 0, away: 1 },
-        elena: null,
+        elena: { home: 1, away: 2 },
       },
     ]
   },
@@ -1225,7 +1225,7 @@ const PARTIDOS_POR_DIA = [
         angel: { home: 3, away: 1 },
         josejuan: { home: 1, away: 1 },
         abraham: { home: 1, away: 0 },
-        elena: null,
+        elena: { home: 2, away: 1 },
       },
       {
         home: { nombre: "España", flag: "images/espana.png" },
@@ -1236,7 +1236,7 @@ const PARTIDOS_POR_DIA = [
         angel: { home: 3, away: 0 },
         josejuan: { home: 2, away: 0 },
         abraham: { home: 4, away: 0 },
-        elena: null,
+        elena: { home: 2, away: 1 },
       },
     ]
   },
@@ -1256,7 +1256,7 @@ const PARTIDOS_POR_DIA = [
         angel: { home: 2, away: 1 },
         josejuan: { home: 1, away: 2 },
         abraham: { home: 1, away: 1 },
-        elena: null,
+        elena: { home: 1, away: 0 },
       },
       {
         home: { nombre: "Suiza", flag: "images/suiza.png" },
@@ -1267,7 +1267,7 @@ const PARTIDOS_POR_DIA = [
         angel: { home: 2, away: 1 },
         josejuan: { home: 1, away: 0 },
         abraham: { home: 0, away: 0 },
-        elena: null,
+        elena: { home: 3, away: 1 },
       },
       {
         home: { nombre: "Australia", flag: "images/australia.png" },
@@ -1278,7 +1278,7 @@ const PARTIDOS_POR_DIA = [
         angel: { home: 1, away: 1 },
         josejuan: { home: 0, away: 0 },
         abraham: { home: 1, away: 1 },
-        elena: null,
+        elena: { home: 0, away: 1 },
       },
     ]
   },
@@ -1299,7 +1299,7 @@ const PARTIDOS_POR_DIA = [
         angel: { home: 2, away: 0 },
         josejuan: { home: 3, away: 0 },
         abraham: { home: 2, away: 0 },
-        elena: null,
+        elena: { home: 2, away: 0 },
       },
       {
         home: { nombre: "Colombia", flag: "images/colombia.png" },
@@ -1310,7 +1310,7 @@ const PARTIDOS_POR_DIA = [
         angel: { home: 3, away: 1 },
         josejuan: { home: 2, away: 0 },
         abraham: { home: 0, away: 1 },
-        elena: null,
+        elena: { home: 3, away: 1 },
       },
     ]
   },
