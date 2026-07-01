@@ -1149,7 +1149,7 @@ const PARTIDOS_POR_DIA = [
         away: { nombre: "Noruega", flag: "images/noruega.png" },
         hora: "19:00",
         jornada: 4,
-        actual: { home: 1, norway: 2 },
+        actual: { home: 1, away: 2 },
         angel: { home: 1, away: 3 },
         josejuan: { home: 0, away: 1 },
         abraham: { home: 0, away: 0 },
