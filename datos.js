@@ -1221,7 +1221,7 @@ const PARTIDOS_POR_DIA = [
         away: { nombre: "Bosnia y Herzegovina", flag: "images/bosnia.png" },
         hora: "02:00",
         jornada: 4,
-        actual: null,
+        actual: { home: 2, away: 0 },
         angel: { home: 3, away: 1 },
         josejuan: { home: 1, away: 1 },
         abraham: { home: 1, away: 0 },
@@ -1232,7 +1232,7 @@ const PARTIDOS_POR_DIA = [
         away: { nombre: "Austria", flag: "images/austria.png" },
         hora: "21:00",
         jornada: 4,
-        actual: null,
+        actual: { home: 3, away: 0 }
         angel: { home: 3, away: 0 },
         josejuan: { home: 2, away: 0 },
         abraham: { home: 4, away: 0 },
@@ -1252,7 +1252,7 @@ const PARTIDOS_POR_DIA = [
         away: { nombre: "Croacia", flag: "images/croacia.png" },
         hora: "01:00",
         jornada: 4,
-        actual: null,
+        actual: { home: 2, away: 1 },
         angel: { home: 2, away: 1 },
         josejuan: { home: 1, away: 2 },
         abraham: { home: 1, away: 1 },
@@ -1263,7 +1263,7 @@ const PARTIDOS_POR_DIA = [
         away: { nombre: "Argelia", flag: "images/argelia.png" },
         hora: "05:00",
         jornada: 4,
-        actual: null,
+        actual: { home: 2, away: 0 },
         angel: { home: 2, away: 1 },
         josejuan: { home: 1, away: 0 },
         abraham: { home: 0, away: 0 },
@@ -1340,7 +1340,7 @@ const PARTIDOS_POR_DIA = [
       },
       {
         home: { nombre: "Paraguay", flag: "images/paraguay.png" },
-        away: { nombre: "Por definir", flag: "images/pd.png" },
+        away: { nombre: "Francia", flag: "images/francia.png" },
         hora: "23:00",
         jornada: 5,
         actual: null,
@@ -1358,7 +1358,7 @@ const PARTIDOS_POR_DIA = [
     partidos: [
       {
         home: { nombre: "Brasil", flag: "images/brasil.png" },
-        away: { nombre: "Por definir", flag: "images/pd.png" },
+        away: { nombre: "Noruega", flag: "images/noruega.png" },
         hora: "22:00",
         jornada: 5,
         actual: null,
@@ -1374,8 +1374,8 @@ const PARTIDOS_POR_DIA = [
     fecha: "Lunes, 6 de julio",
     partidos: [
       {
-        home: { nombre: "Por definir", flag: "images/pd.png" },
-        away: { nombre: "Por definir", flag: "images/pd.png" },
+        home: { nombre: "México", flag: "images/mexico.png" },
+        away: { nombre: "Inglaterra", flag: "images/inglaterra.png" },
         hora: "02:00",
         jornada: 5,
         actual: null,
@@ -1385,8 +1385,8 @@ const PARTIDOS_POR_DIA = [
         elena: null,
       },
       {
-        home: { nombre: "Por definir", flag: "images/pd.png" },
-        away: { nombre: "Por definir", flag: "images/pd.png" },
+        home: { nombre: "Portugal", flag: "images/portugal.png" },
+        away: { nombre: "España", flag: "images/espana.png" },
         hora: "21:00",
         jornada: 5,
         actual: null,
@@ -1402,8 +1402,8 @@ const PARTIDOS_POR_DIA = [
     fecha: "Martes, 7 de julio",
     partidos: [
       {
-        home: { nombre: "Por definir", flag: "images/pd.png" },
-        away: { nombre: "Por definir", flag: "images/pd.png" },
+        home: { nombre: "Estados Unidos", flag: "images/eeuu.png" },
+        away: { nombre: "Bélgica", flag: "images/belgica.png" },
         hora: "02:00",
         jornada: 5,
         actual: null,
@@ -1424,7 +1424,7 @@ const PARTIDOS_POR_DIA = [
         elena: null,
       },
       {
-        home: { nombre: "Por definir", flag: "images/pd.png" },
+        home: { nombre: "Suiza", flag: "images/suiza.png" },
         away: { nombre: "Por definir", flag: "images/pd.png" },
         hora: "22:00",
         jornada: 5,
