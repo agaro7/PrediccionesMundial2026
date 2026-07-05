@@ -1332,22 +1332,22 @@ const PARTIDOS_POR_DIA = [
         away: { nombre: "Marruecos", flag: "images/marruecos.png" },
         hora: "19:00",
         jornada: 5,
-        actual: null,
-        angel: null,
-        josejuan: null,
-        abraham: null,
-        elena: null,
+        actual: { home: 0, away: 3 },
+        angel: { home: 1, away: 3 },
+        josejuan: { home: 2, away: 2 },
+        abraham: { home: 0, away: 2 },
+        elena: { home: 2, away: 1 },
       },
       {
         home: { nombre: "Paraguay", flag: "images/paraguay.png" },
         away: { nombre: "Francia", flag: "images/francia.png" },
         hora: "23:00",
         jornada: 5,
-        actual: null,
-        angel: null,
-        josejuan: null,
-        abraham: null,
-        elena: null,
+        actual: { home: 0, away: 1 },
+        angel: { home: 0, away: 2 },
+        josejuan: { home: 1, away: 3 },
+        abraham: { home: 0, away: 2 },
+        elena: { home: 2, away: 3 },
       },
     ]
   },
@@ -1362,10 +1362,10 @@ const PARTIDOS_POR_DIA = [
         hora: "22:00",
         jornada: 5,
         actual: null,
-        angel: null,
-        josejuan: null,
-        abraham: null,
-        elena: null,
+        angel: { home: 2, away: 1 },
+        josejuan: { home: 3, away: 1 },
+        abraham: { home: 2, away: 1 },
+        elena: { home: 1, away: 1 },
       },
     ]
   },
@@ -1379,10 +1379,10 @@ const PARTIDOS_POR_DIA = [
         hora: "02:00",
         jornada: 5,
         actual: null,
-        angel: null,
-        josejuan: null,
-        abraham: null,
-        elena: null,
+        angel: { home: 1, away: 3 },
+        josejuan: { home: 1, away: 3 },
+        abraham: { home: 1, away: 0 },
+        elena: { home: 1, away: 1 },
       },
       {
         home: { nombre: "Portugal", flag: "images/portugal.png" },
@@ -1390,10 +1390,10 @@ const PARTIDOS_POR_DIA = [
         hora: "21:00",
         jornada: 5,
         actual: null,
-        angel: null,
-        josejuan: null,
-        abraham: null,
-        elena: null,
+        angel: { home: 1, away: 2 },
+        josejuan: { home: 1, away: 3 },
+        abraham: { home: 0, away: 2 },
+        elena: { home: 1, away: 2 },
       },
     ]
   },
@@ -1407,10 +1407,10 @@ const PARTIDOS_POR_DIA = [
         hora: "02:00",
         jornada: 5,
         actual: null,
-        angel: null,
-        josejuan: null,
-        abraham: null,
-        elena: null,
+        angel: { home: 0, away: 1 },
+        josejuan: { home: 1, away: 2 },
+        abraham: { home: 0, away: 0 },
+        elena: { home: 1, away: 2 },
       },
       {
         home: { nombre: "Argentina", flag: "images/argentina.png" },
@@ -1418,16 +1418,34 @@ const PARTIDOS_POR_DIA = [
         hora: "18:00",
         jornada: 5,
         actual: null,
-        angel: null,
-        josejuan: null,
-        abraham: null,
-        elena: null,
+        angel: { home: 2, away: 1 },
+        josejuan: { home: 2, away: 0 },
+        abraham: { home: 2, away: 1 },
+        elena: { home: 1, away: 0 },
       },
       {
         home: { nombre: "Suiza", flag: "images/suiza.png" },
         away: { nombre: "Colombia", flag: "images/colombia.png" },
         hora: "22:00",
         jornada: 5,
+        actual: null,
+        angel: { home: 1, away: 2 },
+        josejuan: { home: 2, away: 3 },
+        abraham: { home: 0, away: 0 },
+        elena: { home: 2, away: 0 },
+      },
+    ]
+  },
+
+
+  {
+    fecha: "Jueves, 9 de julio",
+    partidos: [
+      {
+        home: { nombre: "Francia", flag: "images/francia.png" },
+        away: { nombre: "Marruecos", flag: "images/marruecos.png" },
+        hora: "22:00",
+        jornada: 6,
         actual: null,
         angel: null,
         josejuan: null,
@@ -1437,8 +1455,56 @@ const PARTIDOS_POR_DIA = [
     ]
   },
 
+  {
+    fecha: "Viernes, 10 de julio",
+    partidos: [
+      {
+        home: { nombre: "Por definir", flag: "images/pd.png" },
+        away: { nombre: "Por definir", flag: "images/pd.png" },
+        hora: "18:00",
+        jornada: 6,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+    ]
+  },
 
-  
+  {
+    fecha: "Sábado, 11 de julio",
+    partidos: [
+      {
+        home: { nombre: "Por definir", flag: "images/pd.png" },
+        away: { nombre: "Por definir", flag: "images/pd.png" },
+        hora: "18:00",
+        jornada: 6,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+    ]
+  },
+
+  {
+    fecha: "Domingo, 12 de julio",
+    partidos: [
+      {
+        home: { nombre: "Por definir", flag: "images/pd.png" },
+        away: { nombre: "Por definir", flag: "images/pd.png" },
+        hora: "18:00",
+        jornada: 6,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+    ]
+  },
 
 
 
