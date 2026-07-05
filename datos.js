@@ -26,7 +26,6 @@ const PARTIDOS_POR_DIA = [
 
 
 
-
   {
     fecha: "Viernes, 12 de junio",
     partidos: [
