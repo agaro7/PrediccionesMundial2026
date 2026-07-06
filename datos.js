@@ -1360,7 +1360,7 @@ const PARTIDOS_POR_DIA = [
         away: { nombre: "Noruega", flag: "images/noruega.png" },
         hora: "22:00",
         jornada: 5,
-        actual: null,
+        actual: { home: 1, away: 2 },
         angel: { home: 2, away: 1 },
         josejuan: { home: 3, away: 1 },
         abraham: { home: 2, away: 1 },
@@ -1377,7 +1377,7 @@ const PARTIDOS_POR_DIA = [
         away: { nombre: "Inglaterra", flag: "images/inglaterra.png" },
         hora: "02:00",
         jornada: 5,
-        actual: null,
+        actual: { home: 2, away: 3 },
         angel: { home: 1, away: 3 },
         josejuan: { home: 1, away: 3 },
         abraham: { home: 1, away: 0 },
@@ -1460,7 +1460,7 @@ const PARTIDOS_POR_DIA = [
       {
         home: { nombre: "Por definir", flag: "images/pd.png" },
         away: { nombre: "Por definir", flag: "images/pd.png" },
-        hora: "18:00",
+        hora: "21:00",
         jornada: 6,
         actual: null,
         angel: null,
@@ -1475,9 +1475,9 @@ const PARTIDOS_POR_DIA = [
     fecha: "Sábado, 11 de julio",
     partidos: [
       {
-        home: { nombre: "Por definir", flag: "images/pd.png" },
-        away: { nombre: "Por definir", flag: "images/pd.png" },
-        hora: "18:00",
+        home: { nombre: "Noruega", flag: "images/noruega.png" },
+        away: { nombre: "Inglaterra", flag: "images/inglaterra.png" },
+        hora: "23:00",
         jornada: 6,
         actual: null,
         angel: null,
@@ -1494,7 +1494,7 @@ const PARTIDOS_POR_DIA = [
       {
         home: { nombre: "Por definir", flag: "images/pd.png" },
         away: { nombre: "Por definir", flag: "images/pd.png" },
-        hora: "18:00",
+        hora: "03:00",
         jornada: 6,
         actual: null,
         angel: null,
