@@ -1445,7 +1445,7 @@ const PARTIDOS_POR_DIA = [
         away: { nombre: "Marruecos", flag: "images/marruecos.png" },
         hora: "22:00",
         jornada: 6,
-        actual: null,
+        actual: { home: 2, away: 0 },
         angel: { home: 3, away: 2 },
         josejuan: { home: 3, away: 1 },
         abraham: { home: 1, away: 1 },
@@ -1462,7 +1462,7 @@ const PARTIDOS_POR_DIA = [
         away: { nombre: "Bélgica", flag: "images/belgica.png" },
         hora: "21:00",
         jornada: 6,
-        actual: null,
+        actual: { home: 2, away: 1 },
         angel: { home: 2, away: 0 },
         josejuan: { home: 2, away: 0 },
         abraham: { home: 2, away: 0 },
@@ -1529,8 +1529,8 @@ const PARTIDOS_POR_DIA = [
     fecha: "Martes, 14 de julio",
     partidos: [
       {
-        home: { nombre: "Por definir", flag: "images/pd.png" },
-        away: { nombre: "Por definir", flag: "images/pd.png" },
+        home: { nombre: "Francia", flag: "images/francia.png" },
+        away: { nombre: "España", flag: "images/espana.png" },
         hora: "21:00",
         jornada: 7,
         actual: null,
