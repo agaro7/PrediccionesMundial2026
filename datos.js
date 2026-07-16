@@ -1479,7 +1479,7 @@ const PARTIDOS_POR_DIA = [
         away: { nombre: "Inglaterra", flag: "images/inglaterra.png" },
         hora: "23:00",
         jornada: 6,
-        actual: null,
+        actual: { home: 1, away: 2 },
         angel: { home: 1, away: 2 },
         josejuan: { home: 2, away: 2 },
         abraham: { home: 0, away: 0 },
@@ -1496,7 +1496,7 @@ const PARTIDOS_POR_DIA = [
         away: { nombre: "Suiza", flag: "images/suiza.png" },
         hora: "03:00",
         jornada: 6,
-        actual: null,
+        actual: { home: 3, away: 0 },
         angel: { home: 2, away: 1 },
         josejuan: { home: 2, away: 1 },
         abraham: { home: 1, away: 2 },
@@ -1533,11 +1533,11 @@ const PARTIDOS_POR_DIA = [
         away: { nombre: "España", flag: "images/espana.png" },
         hora: "21:00",
         jornada: 7,
-        actual: null,
-        angel: null,
-        josejuan: null,
-        abraham: null,
-        elena: null,
+        actual: { home: 0, away: 2 },
+        angel: { home: 2, away: 3 },
+        josejuan: { home: 1, away: 3 },
+        abraham: { home: 0, away: 1 },
+        elena: { home: 2, away: 2 },
       },
     ]
   },
@@ -1547,10 +1547,28 @@ const PARTIDOS_POR_DIA = [
     fecha: "Miércoles, 15 de julio",
     partidos: [
       {
-        home: { nombre: "Por definir", flag: "images/pd.png" },
-        away: { nombre: "Por definir", flag: "images/pd.png" },
+        home: { nombre: "Inglaterra", flag: "images/inglaterra.png" },
+        away: { nombre: "Argentina", flag: "images/argentina.png" },
         hora: "21:00",
         jornada: 7,
+        actual: { home: 1, away: 2 },
+        angel: { home: 2, away: 1 },
+        josejuan: { home: 2, away: 1 },
+        abraham: { home: 1, away: 1 },
+        elena: { home: 2, away: 3 },
+      },
+    ]
+  },
+
+
+  {
+    fecha: "Sábado, 18 de julio",
+    partidos: [
+      {
+        home: { nombre: "Francia", flag: "images/francia.png" },
+        away: { nombre: "Inglaterra", flag: "images/inglaterra.png" },
+        hora: "23:00",
+        jornada: 8,
         actual: null,
         angel: null,
         josejuan: null,
@@ -1560,6 +1578,23 @@ const PARTIDOS_POR_DIA = [
     ]
   },
 
+
+    {
+    fecha: "Domingo, 19 de julio",
+    partidos: [
+      {
+        home: { nombre: "España", flag: "images/espana.png" },
+        away: { nombre: "Argentina", flag: "images/argentina.png" },
+        hora: "21:00",
+        jornada: 9,
+        actual: null,
+        angel: null,
+        josejuan: null,
+        abraham: null,
+        elena: null,
+      },
+    ]
+  },
 
 
 ];
